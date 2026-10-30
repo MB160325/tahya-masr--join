@@ -94,7 +94,7 @@ function draw() {
       .map((r) => {
         const s = stOf(r),
           t = { p: ["t-p", "قيد المراجعة"], a: ["t-a", "مقبول"], r: ["t-r", "مرفوض"] }[s];
-        return `<tr><td><input type="checkbox" class="ck" data-id="${r.id}" ${sel.has(r.id) ? "checked" : ""}></td><td><button class="nm" data-id="${r.id}">${esc(r.name_ar)}</button></td><td>${r.national_id}</td><td>${esc(r.target_gov)}</td><td>${esc(r.committee)}</td><td>${esc(r.phone)}</td><td>${esc(staff.find((x) => x.id === r.assigned_to)?.name || "—")}</td><td><span class="tag ${t[0]}">${t[1]}</span></td></tr>`;
+        return `<tr><td><input type="checkbox" class="ck" data-id="${r.id}" ${sel.has(r.id) ? "checked" : ""}></td><td data-l="الاسم"><button class="nm" data-id="${r.id}">${esc(r.name_ar)}</button></td><td data-l="الرقم القومي">${r.national_id}</td><td data-l="المحافظة">${esc(r.target_gov)}</td><td data-l="اللجنة">${esc(r.committee)}</td><td data-l="الهاتف">${esc(r.phone)}</td><td data-l="HR المسؤول">${esc(staff.find((x) => x.id === r.assigned_to)?.name || "—")}</td><td data-l="الحالة"><span class="tag ${t[0]}">${t[1]}</span></td></tr>`;
       })
       .join("") || '<tr><td colspan="8">لا توجد نتائج</td></tr>';
 }
